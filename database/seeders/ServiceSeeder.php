@@ -72,7 +72,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 "icone" => "flaticon-020-creativity",
-                "title" => "",
+                "title" => "SMART MARKETING",
                 "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
