@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             MainSeeder::class,
             ServiceSeeder::class,
             TeamSeeder::class,
-            TestimonialSeeder::class
+            TestimonialSeeder::class,
+            LogoSeeder::class,
         ]);
     }
 }

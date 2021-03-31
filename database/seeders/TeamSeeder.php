@@ -17,17 +17,17 @@ class TeamSeeder extends Seeder
         DB::table('teams')->insert([
             [
                 "src" => "1.jpg",
-                "name" => "Christinne Williams",
+                "name" => "Louise Vandevelde",
                 "function" => "Project Manager",
             ],
             [
                 "src" => "2.jpg",
                 "name" => "Christinne Williams",
-                "function" => "Junior developer",
+                "function" => "CEO",
             ],
             [
                 "src" => "3.jpg",
-                "name" => "Christinne Williams",
+                "name" => "Antoine Bouche",
                 "function" => "Digital designer",
             ],
         ]);

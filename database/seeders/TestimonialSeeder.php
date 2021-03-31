@@ -19,42 +19,49 @@ class TestimonialSeeder extends Seeder
                 "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
 
                 "src" => "01.jpg",
-                "name" => "Michael Smith",
+                "name" => "David Lopez",
                 "function" => "CEO Company",
             ],
             [
                 "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
 
                 "src" => "02.jpg",
-                "name" => "Michael Smith",
+                "name" => "Déborah Santos",
                 "function" => "CEO Company",
             ],
             [
                 "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
 
                 "src" => "01.jpg",
-                "name" => "Michael Smith",
+                "name" => "Benjamin Williams",
                 "function" => "CEO Company",
             ],
             [
                 "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
 
                 "src" => "02.jpg",
-                "name" => "Michael Smith",
+                "name" => "Mathilde Lion",
                 "function" => "CEO Company",
             ],
             [
                 "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
 
                 "src" => "01.jpg",
-                "name" => "Michael Smith",
+                "name" => "George Clin",
                 "function" => "CEO Company",
             ],
             [
                 "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
 
                 "src" => "02.jpg",
-                "name" => "Michael Smith",
+                "name" => "Elena Solis",
+                "function" => "CEO Company",
+            ],
+            [
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.",
+
+                "src" => "01.jpg",
+                "name" => "Alexis Leclerc",
                 "function" => "CEO Company",
             ],
         ]);

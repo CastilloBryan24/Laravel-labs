@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Footer;
+use App\Models\Logo;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
@@ -14,7 +18,15 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::all();
+        $contact = Contact::all();
+        $footer = Footer::all();
+
+
+        $page = DB::table('services')
+        ->orderBy('id', 'desc')
+        ->paginate(9);
+        return view('services', compact('logo', 'contact', 'footer', 'page'));
     }
 
     /**

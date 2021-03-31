@@ -63,32 +63,32 @@ class ServiceSeeder extends Seeder
             [
                 "icone" => "flaticon-002-caliper",
                 "title" => "Get in the lab",
-                "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
             ],
             [
                 "icone" => "flaticon-019-coffee-cup",
                 "title" => "Projects online",
-                "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
             ],
             [
                 "icone" => "flaticon-020-creativity",
                 "title" => "SMART MARKETING",
-                "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
             ],
             [
                 "icone" => "flaticon-037-idea",
                 "title" => "Get in the lab",
-                "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
             ],
             [
                 "icone" => "flaticon-025-imagination",
                 "title" => "Projects online",
-                "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
             ],
             [
                 "icone" => "flaticon-008-team",
                 "title" => "SMART MARKETING",
-                "text" => "Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
+                "text" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
             ],
         ]);
     }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Main;
 use Illuminate\Http\Request;
 
-class Footer extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
