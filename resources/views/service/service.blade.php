@@ -22,7 +22,6 @@
         </div>
         <div class="text-center">
             {{ $page->fragment('services')->links('vendor.pagination.bootstrap-4') }}
-
         </div>
     </div>
 </div>
