@@ -44,9 +44,9 @@ Route::get('/testimonial-edit/{id}', [TestimonialController::class, 'edit']);
 Route::post('/testimonial-update/{id}', [TestimonialController::class, 'update']);
 Route::get('/testimonial-destroy/{id}', [TestimonialController::class, 'destroy']);
 
-
-
-
+// About
+Route::get('/about-edit/{id}', [AboutController::class, 'edit']);
+Route::post('/about-update/{id}', [AboutController::class, 'update']);
 
 
 // Blog
@@ -66,3 +66,4 @@ Route::get('/backoffice', [Backoffice::class, 'index']);
 Route::get('/titre', [TitreController::class, 'index']);
 Route::get('/boService', [ServiceController::class, 'backoffice']);
 Route::get('/boTestimonial', [TestimonialController::class, 'index']);
+Route::get('/boAbout', [AboutController::class, 'index']);

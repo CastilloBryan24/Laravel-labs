@@ -29,7 +29,7 @@
     </div>
 </div>
 <!-- Testimonial section end-->
-<h1 class="text-center mt-5">Ajouter un avis</h1>
+<h1 class="text-center mt-5">AJOUTER UN AVIS</h1>
 <form action="/testimonial-store" method="POST" class="mt-5 container" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
