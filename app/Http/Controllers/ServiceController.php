@@ -29,9 +29,6 @@ class ServiceController extends Controller
         ->limit(6)
         ->get();
 
-
-
-
         $page = DB::table('services')
         ->orderBy('id', 'desc')
         ->paginate(9);
@@ -43,9 +40,14 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function backoffice()
     {
-        //
+        $logo = Logo::all();
+        $page = DB::table('services')
+        ->orderBy('id', 'desc')
+        ->paginate(9);
+
+        return view('boService', compact('page', 'logo'));
     }
 
     /**
@@ -56,7 +58,12 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Service;
+        $store->icone = $request->icone;
+        $store->title = $request->title;
+        $store->text = $request->text;
+        $store->save();
+        return redirect('/boService');
     }
 
     /**
@@ -76,9 +83,10 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $edit = Service::find($id);
+        return view('editService', compact('edit'));
     }
 
     /**
@@ -88,9 +96,14 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $update = Service::find($id);
+        $update->icone = $request->icone;
+        $update->title = $request->title;
+        $update->text = $request->text;
+        $update->save();
+        return redirect('/boService');
     }
 
     /**
@@ -99,8 +112,10 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $destroy = Service::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
 }

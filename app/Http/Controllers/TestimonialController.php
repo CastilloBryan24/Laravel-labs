@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
@@ -13,7 +17,13 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $logo = Logo::all();
+        $testimonial = DB::table('testimonials')
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
+
+        return view('boTestimonial', compact('logo', 'testimonial'));
     }
 
     /**
@@ -34,7 +44,15 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Testimonial;
+        $store->text = $request->text;
+        Storage::put('public/img/avatar/', $request->file('src'));
+        $store->src = $request->file('src')->hashName();
+        $store->name = $request->name;
+        $store->function = $request->function;
+        $store->save();
+        return redirect()->back();
+
     }
 
     /**
@@ -56,7 +74,8 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = Testimonial::find($id);
+        return view('editTestimonial', compact('edit'));
     }
 
     /**
@@ -68,7 +87,15 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Testimonial::find($id);
+        $update->text = $request->text;
+        Storage::delete('public/img/avatar/'.$update->src);
+        Storage::put('public/img/avatar/', $request->file('src'));
+        $update->src = $request->file('src')->hashName();
+        $update->name = $request->name;
+        $update->function = $request->function;
+        $update->save();
+        return redirect('/boTestimonial');
     }
 
     /**
@@ -79,6 +106,8 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = Testimonial::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
 }

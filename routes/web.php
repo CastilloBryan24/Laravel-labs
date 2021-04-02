@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitreController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,20 @@ Route::post('/titre-update/{id}', [TitreController::class, 'update']);
 
 // Services
 Route::get('/services', [ServiceController::class, 'index']);
+Route::get('/service-edit/{id}', [ServiceController::class, 'edit']);
+Route::post('/service-update/{id}', [ServiceController::class, 'update']);
+Route::post('/service-store', [ServiceController::class, 'store']);
+Route::get('/service-destroy/{id}', [ServiceController::class, 'destroy']);
+
+// Testimonial
+Route::post('/testimonial-store', [TestimonialController::class, 'store']);
+Route::get('/testimonial-edit/{id}', [TestimonialController::class, 'edit']);
+Route::post('/testimonial-update/{id}', [TestimonialController::class, 'update']);
+Route::get('/testimonial-destroy/{id}', [TestimonialController::class, 'destroy']);
+
+
+
+
 
 
 // Blog
@@ -49,3 +64,5 @@ Route::get('/blogPost', [PostController::class, 'index']);
 // Backoffice
 Route::get('/backoffice', [Backoffice::class, 'index']);
 Route::get('/titre', [TitreController::class, 'index']);
+Route::get('/boService', [ServiceController::class, 'backoffice']);
+Route::get('/boTestimonial', [TestimonialController::class, 'index']);
