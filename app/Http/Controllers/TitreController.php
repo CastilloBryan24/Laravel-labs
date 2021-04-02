@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
-use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Main;
-use App\Models\Service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ServiceController extends Controller
+class TitreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,21 +17,7 @@ class ServiceController extends Controller
     {
         $logo = Logo::all();
         $title = Main::all();
-        $contact = Contact::all();
-        $footer = Footer::all();
-
-        $features = DB::table('services')
-        ->orderBy('id', 'desc')
-        ->limit(6)
-        ->get();
-
-
-
-
-        $page = DB::table('services')
-        ->orderBy('id', 'desc')
-        ->paginate(9);
-        return view('services', compact('logo', 'contact', 'footer', 'page', 'title', 'features'));
+        return view('boMain', compact('logo', 'title'));
     }
 
     /**
@@ -62,10 +44,10 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
         //
     }
@@ -73,33 +55,37 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $edit = Main::find($id);
+        return view('editMain', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $update = Main::find($id);
+        $update->title = $request->title;
+        $update->save();
+        return redirect('/titre');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Service  $service
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
         //
     }
