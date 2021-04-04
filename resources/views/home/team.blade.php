@@ -10,7 +10,7 @@
             @foreach ($team as $item)
                 <div class="col-sm-4">
                     <div class="member">
-                        <img src="{{asset('storage/img/team/'.$item->src)}}" alt="">
+                        <img src="{{asset('storage/img/team/'.$item->src)}}" alt="" height="448px">
                         <h2>{{$item->name}}</h2>
                         <h3>{{$item->function}}</h3>
                     </div>

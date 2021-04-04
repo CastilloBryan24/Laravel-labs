@@ -82,12 +82,15 @@ Le contact en dessous reste le même.
 Admin : 
 - peut changer les rôles
 - peut faire tout ce que les rôles d'avant font (donc peut tout faire)
+
 Webmaster :
 - peut modifier les articles
 - accepter les personnes qui s'inscrivent et valide leur fonction
 - peut faire tout comme l'admin mais juste pas donner de role Webmaster / Admin
+
 Rédacteur :
 - peut écrire des articles
+
 Membres :
 - tout le monde est automatiquement membre
 

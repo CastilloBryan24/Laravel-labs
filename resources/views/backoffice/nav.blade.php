@@ -7,6 +7,7 @@
     <nav>
         <ul class="menu-list">
             <li class="{{(Route::getCurrentRoute()->uri()) === "backoffice" ? 'active' : ''}}"><a href="/backoffice">Logo</a></li>
+            <li class="{{(Route::getCurrentRoute()->uri()) === "team" ? 'active' : ''}}"><a href="/team">Equipe</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "boAbout" ? 'active' : ''}}"><a href="/boAbout">About</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "titre" ? 'active' : ''}}"><a href="/titre">Titre</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "boService" ? 'active' : ''}}"><a href="/boService">Services</a></li>
