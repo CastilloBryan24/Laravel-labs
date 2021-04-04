@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
@@ -56,18 +57,20 @@ Route::post('/team-update/{id}', [TeamController::class, 'update']);
 Route::get('/team-destroy/{id}', [TeamController::class, 'destroy']);
 Route::post('/team-store', [TeamController::class, 'store']);
 
-
 // Blog
 Route::get('/blog', [BlogController::class, 'index']);
 
-
 // Contact
 Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact-edit/{id}', [ContactController::class, 'edit']);
+Route::post('/contact-update/{id}', [ContactController::class, 'update']);
 
+// Map
+Route::get('/map-edit/{id}', [MapController::class, 'edit']);
+Route::post('/map-update/{id}', [MapController::class, 'update']);
 
 // Post
 Route::get('/blogPost', [PostController::class, 'index']);
-
 
 // Backoffice
 Route::get('/backoffice', [Backoffice::class, 'index']);
@@ -76,3 +79,5 @@ Route::get('/boService', [ServiceController::class, 'backoffice']);
 Route::get('/boTestimonial', [TestimonialController::class, 'index']);
 Route::get('/boAbout', [AboutController::class, 'index']);
 Route::get('/team', [TeamController::class, 'index']);
+Route::get('/boContact', [ContactController::class, 'backoffice']);
+Route::get('/boBlog', [BlogController::class, 'backoffice']);

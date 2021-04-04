@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             TestimonialSeeder::class,
             LogoSeeder::class,
+            MapSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class
         ]);
     }
 }

@@ -12,8 +12,9 @@
             <li class="{{(Route::getCurrentRoute()->uri()) === "titre" ? 'active' : ''}}"><a href="/titre">Titre</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "boService" ? 'active' : ''}}"><a href="/boService">Services</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "boTestimonial" ? 'active' : ''}}"><a href="/boTestimonial">Avis</a></li>
-            <li class="{{(Route::getCurrentRoute()->uri()) === "blog" || (Route::getCurrentRoute()->uri()) === "blogPost"  ? 'active' : ''}}"><a href="/blog">Blog</a></li>
-            <li class="{{(Route::getCurrentRoute()->uri()) === "contact" ? 'active' : ''}}"><a href="/contact">Contact</a></li>
+            <li class="{{(Route::getCurrentRoute()->uri()) === "boBlog" ? 'active' : ''}}"><a href="/boBlog">Blog</a></li>
+            <li class="{{(Route::getCurrentRoute()->uri()) === "boContact" ? 'active' : ''}}"><a href="/boContact">Contact</a></li>
+            <li class="{{(Route::getCurrentRoute()->uri()) === "newsletter" ? 'active' : ''}}"><a href="/newsletter">Newsletter</a></li>
         </ul>
     </nav>
 </header>

@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
-use App\Models\Footer;
-use App\Models\Logo;
 use App\Models\Map;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class MapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $logo = Logo::all();
-        $contact = Contact::all();
-        $footer = Footer::all();
-        $map = Map::all();
-        return view('contact', compact('logo', 'contact', 'footer', 'map'));
+        //
     }
 
     /**
@@ -29,12 +22,9 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function backoffice()
+    public function create()
     {
-        $logo = Logo::all();
-        $contact = Contact::all();
-        $map = Map::all();
-        return view('boContact', compact('logo', 'contact', 'map'));
+        //
     }
 
     /**
@@ -51,10 +41,10 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Map $map)
     {
         //
     }
@@ -62,30 +52,26 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Map  $map
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $edit = Contact::find($id);
-        return view('editContact', compact('edit'));
+        $edit = Map::find($id);
+        return view('editMap', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Map  $map
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $update = Contact::find($id);
-        $update->text = $request->text;
-        $update->address = $request->address;
-        $update->postal = $request->postal;
-        $update->number = $request->number;
-        $update->mail = $request->mail;
+        $update = Map::find($id);
+        $update->map = $request->map;
         $update->save();
         return redirect('/boContact');
     }
@@ -93,10 +79,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Map $map)
     {
         //
     }
