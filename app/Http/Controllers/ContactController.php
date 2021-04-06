@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Map;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -21,7 +22,9 @@ class ContactController extends Controller
         $contact = Contact::all();
         $footer = Footer::all();
         $map = Map::all();
-        return view('contact', compact('logo', 'contact', 'footer', 'map'));
+        $sujet = Subject::all();
+
+        return view('contact', compact('logo', 'sujet', 'contact', 'footer', 'map'));
     }
 
     /**

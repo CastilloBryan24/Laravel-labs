@@ -4,9 +4,11 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Backoffice;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FormulaireController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
@@ -65,6 +67,10 @@ Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/contact-edit/{id}', [ContactController::class, 'edit']);
 Route::post('/contact-update/{id}', [ContactController::class, 'update']);
+Route::post('/formulaire-store', [FormulaireController::class, 'store']);
+
+// Newsletter
+Route::post('/news-store', [NewsletterController::class, 'store']);
 
 // Map
 Route::get('/map-edit/{id}', [MapController::class, 'edit']);
@@ -82,6 +88,7 @@ Route::get('/boAbout', [AboutController::class, 'index']);
 Route::get('/team', [TeamController::class, 'index']);
 Route::get('/boContact', [ContactController::class, 'backoffice']);
 Route::get('/boBlog', [BlogController::class, 'backoffice']);
+Route::get('/boNewsletter', [NewsletterController::class, 'index']);
 
 
 Auth::routes();

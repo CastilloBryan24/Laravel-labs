@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Newsletter as MailNewsletter;
-use App\Models\Logo;
-use App\Models\Newsletter;
+use App\Models\Post_tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
-class NewsletterController extends Controller
+class PostTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,7 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        $mail = Newsletter::all();
-        $logo = Logo::all();
-        return view('boNewsletter', compact('mail', 'logo'));
+        //
     }
 
     /**
@@ -40,25 +35,16 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $request->validate([
-            "mail" => 'required|email|unique:newsletters,mail'
-        ]);
-
-        $store = new Newsletter;
-        $store->mail = $request->mail;
-        $store->save();
-
-        Mail::to('bryan.castillo24@hotmail.com')->send(new MailNewsletter($request));
-        return redirect()->back()->with('status', 'Vous êtes inscrit dans la Newsletter');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Post_tag  $post_tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Newsletter $newsletter)
+    public function show(Post_tag $post_tag)
     {
         //
     }
@@ -66,10 +52,10 @@ class NewsletterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Post_tag  $post_tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Newsletter $newsletter)
+    public function edit(Post_tag $post_tag)
     {
         //
     }
@@ -78,10 +64,10 @@ class NewsletterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Post_tag  $post_tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletter $newsletter)
+    public function update(Request $request, Post_tag $post_tag)
     {
         //
     }
@@ -89,10 +75,10 @@ class NewsletterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Newsletter  $newsletter
+     * @param  \App\Models\Post_tag  $post_tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Newsletter $newsletter)
+    public function destroy(Post_tag $post_tag)
     {
         //
     }

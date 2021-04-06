@@ -14,10 +14,17 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Fonction::class, 'fonction_id');
     }
+
     public function roles()
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
+    
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

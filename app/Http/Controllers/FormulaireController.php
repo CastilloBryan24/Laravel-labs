@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailSend;
 use App\Models\Formulaire;
+use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FormulaireController extends Controller
 {
@@ -14,7 +17,7 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -35,7 +38,15 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Formulaire;
+        $store->name = $request->name;
+        $store->mail = $request->mail;
+        $store->subject_id = $request->subject_id;
+        $store->message = $request->message;
+        $store->save();
+
+        Mail::to('bryan.castillo24@hotmail.com')->send(new MailSend($request));
+        return redirect()->back();
     }
 
     /**

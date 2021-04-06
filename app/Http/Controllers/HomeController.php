@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Main;
+use App\Models\Subject;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,6 +41,7 @@ class HomeController extends Controller
         $title = Main::all();
         $contact = Contact::all();
         $footer = Footer::all();
+        $sujet = Subject::all();
         // $user = User::all();
         $about = About::all();
 
@@ -66,6 +68,6 @@ class HomeController extends Controller
         // ->get();
 
         
-        return view('welcome', compact('logo', 'title', 'contact', 'footer', 'testimonial', 'about', 'random', 'service'));
+        return view('welcome', compact('logo', 'title', 'sujet', 'contact', 'footer', 'testimonial', 'about', 'random', 'service'));
     }
 }

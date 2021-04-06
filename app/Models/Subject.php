@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formulaire extends Model
+class Subject extends Model
 {
     use HasFactory;
-    public function subjects()
+    public function formulaires()
     {
-        return $this->belongsTo(Subject::class, 'subject_id');
+        return $this->hasMany(Formulaire::class);
     }
 }

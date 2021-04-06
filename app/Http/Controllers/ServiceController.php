@@ -7,6 +7,7 @@ use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Main;
 use App\Models\Service;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,8 @@ class ServiceController extends Controller
         $title = Main::all();
         $contact = Contact::all();
         $footer = Footer::all();
+        $sujet = Subject::all();
+
 
         $features = DB::table('services')
         ->orderBy('id', 'desc')
@@ -32,7 +35,7 @@ class ServiceController extends Controller
         $page = DB::table('services')
         ->orderBy('id', 'desc')
         ->paginate(9);
-        return view('services', compact('logo', 'contact', 'footer', 'page', 'title', 'features'));
+        return view('services', compact('logo', 'sujet', 'contact', 'footer', 'page', 'title', 'features'));
     }
 
     /**

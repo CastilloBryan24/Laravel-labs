@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             FonctionSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            SubjectSeeder::class
         ]);
     }
 }
