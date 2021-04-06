@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
             LogoSeeder::class,
             MapSeeder::class,
             CategorySeeder::class,
-            TagSeeder::class
+            TagSeeder::class,
+            FonctionSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class
         ]);
     }
 }

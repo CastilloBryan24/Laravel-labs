@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitreController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Home
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'accueil']);
 // Logo
 Route::get('/logo-edit/{id}', [LogoController::class, 'edit']);
 Route::post('/logo-update/{id}', [LogoController::class, 'update']);
@@ -81,3 +82,8 @@ Route::get('/boAbout', [AboutController::class, 'index']);
 Route::get('/team', [TeamController::class, 'index']);
 Route::get('/boContact', [ContactController::class, 'backoffice']);
 Route::get('/boBlog', [BlogController::class, 'backoffice']);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

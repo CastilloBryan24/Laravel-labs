@@ -16,34 +16,34 @@ class TagSeeder extends Seeder
     {
         DB::table('tags')->insert([
             [
-                'tag' => 'Branding'
+                'name' => 'Branding'
             ],
             [
-                'tag' => 'Identity'
+                'name' => 'Identity'
             ],
             [
-                'tag' => 'Video'
+                'name' => 'Video'
             ],
             [
-                'tag' => 'Design'
+                'name' => 'Design'
             ],
             [
-                'tag' => 'Inspiration'
+                'name' => 'Inspiration'
             ],
             [
-                'tag' => 'House'
+                'name' => 'House'
             ],
             [
-                'tag' => 'Photography'
+                'name' => 'Photography'
             ],
             [
-                'tag' => 'Car'
+                'name' => 'Car'
             ],
             [
-                'tag' => 'Travel'
+                'name' => 'Travel'
             ],
             [
-                'tag' => 'Latin'
+                'name' => 'Latin'
             ],
         ]);
     }

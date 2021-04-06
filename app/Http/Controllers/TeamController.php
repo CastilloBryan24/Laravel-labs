@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Logo;
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,8 +18,8 @@ class TeamController extends Controller
     public function index()
     {
         $logo = Logo::all();
-        $equipe = Team::all();
-        return view('boTeam', compact('logo', 'equipe'));
+        $user = User::all();
+        return view('boTeam', compact('logo', 'user'));
     }
 
     /**
@@ -39,13 +40,16 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new Team;
-        Storage::put('public/img/team/', $request->file('src'));
-        $store->src = $request->file('src')->hashName();
-        $store->name = $request->name;
-        $store->function = $request->function;
-        $store->save();
-        return redirect()->back();
+        // $store = new User;
+        // Storage::put('public/img/users/', $request->file('src'));
+        // $store->src = $request->file('src')->hashName();
+        // $store->name = $request->name;
+        // $store->email = $request->email;
+        // $store->name = $request->name;
+        // $store->name = $request->name;
+        // $store->function = $request->function;
+        // $store->save();
+        // return redirect()->back();
     }
 
     /**
@@ -56,7 +60,7 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-        $show = Team::find($id);
+        $show = User::find($id);
         return view('show', compact('show'));
     }
 
@@ -68,7 +72,7 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        $edit = Team::find($id);
+        $edit = User::find($id);
         return view('editTeam', compact('edit'));
     }
 
@@ -99,8 +103,8 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        $destroy = Team::find($id);
-        Storage::delete('public/img/team/'.$destroy->src);
+        $destroy = User::find($id);
+        Storage::delete('public/img/users/'.$destroy->src);
         $destroy->delete();
         return redirect()->back();
     }

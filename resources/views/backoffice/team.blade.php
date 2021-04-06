@@ -9,10 +9,10 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($equipe as $item)
+          @foreach ($user as $item)
             <tr>
               <td>{{$item->name}}</td>  
-              <td>{{$item->function}}</td>  
+              <td>{{$item->fonctions->name}}</td>  
               <td class="text-center"><a href="/team-show/{{$item->id}}" class="btn btn-warning">Voir</a></td>        
               <td class="text-center"><a href="/team-destroy/{{$item->id}}" class="btn btn-danger">Supprimer</a></td>        
             </tr>
@@ -22,7 +22,7 @@
 </div>
 
 <!-- Testimonial section end-->
-<h1 class="text-center mt-5">AJOUTER UN NOUVEAU MEMBRE</h1>
+{{-- <h1 class="text-center mt-5">AJOUTER UN NOUVEAU MEMBRE</h1>
 <form action="/team-store" method="POST" class="mt-5 container" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -38,4 +38,4 @@
       <input type="text" name="function" value="{{old("function")}}" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form> --}}
