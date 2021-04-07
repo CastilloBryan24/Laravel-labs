@@ -10,21 +10,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    public function fonctions()
-    {
-        return $this->belongsTo(Fonction::class, 'fonction_id');
-    }
-
-    public function roles()
-    {
-        return $this->belongsTo(Role::class, 'role_id');
-    }
-    
-    public function posts()
-    {
-        return $this->hasMany(Post::class, 'user_id');
-    }
-
     /**
      * The attributes that are mass assignable.
      *
@@ -60,4 +45,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function fonctions()
+    {
+        return $this->belongsTo(Fonction::class, 'fonction_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
 }

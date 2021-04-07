@@ -15,6 +15,7 @@
             <li class="{{(Route::getCurrentRoute()->uri()) === "boBlog" ? 'active' : ''}}"><a href="/boBlog">Blog</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "boContact" ? 'active' : ''}}"><a href="/boContact">Contact</a></li>
             <li class="{{(Route::getCurrentRoute()->uri()) === "boNewsletter" ? 'active' : ''}}"><a href="/boNewsletter">Newsletter</a></li>
+            <li class="{{(Route::getCurrentRoute()->uri()) === "boComment" ? 'active' : ''}}"><a href="/boComment">Commentaire</a></li>
         </ul>
     </nav>
 </header>

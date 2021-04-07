@@ -13,19 +13,18 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    // public function comments()
-    // {
-    //     return $this->hasMany(Comment::class, 'post_id');
-    // }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     public function categories()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function users()
+    public function auteur()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
 }

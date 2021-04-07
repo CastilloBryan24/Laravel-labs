@@ -34,11 +34,14 @@
 
 </head>
 <body>
-    @include('backoffice.nav')
-    <section class="mt-5">
-        @yield('content')
-    </section>
+    <section style="background-color: #f6dad5">
 
+        @include('backoffice.nav')
+        <section class="mt-5">
+            @yield('content')
+        </section>
+
+    </section>    
     <script src="{{asset('js/app.js')}}"></script>
 
         	<!--====== Javascripts & Jquery ======-->

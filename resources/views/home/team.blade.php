@@ -7,9 +7,8 @@
         </div>
         <div class="row">
             <!-- single member -->
-            <?php use App\Models\User; $user=User::all();  ?>
 
-            @foreach ($user->where('fonction_id', '!=', 1)->random(2) as $item)
+            @foreach ($user as $item)
                 <div class="col-sm-4">
                     <div class="member">
                         <img src="{{asset('storage/img/users/'.$item->src)}}" alt="" height="448px">
@@ -20,9 +19,9 @@
                 @if ($loop->iteration == 1)
                     <div class="col-sm-4">
                         <div class="member">
-                            <img src="{{asset('storage/img/users/'.$user[1]->src)}}" alt="">
-                            <h2>{{$user[1]->name}}</h2>
-                            <h3>{{$user[1]->fonctions->name}}</h3>
+                            <img src="{{asset('storage/img/users/'.$users[1]->src)}}" alt="">
+                            <h2>{{$users[1]->name}}</h2>
+                            <h3>{{$users[1]->fonctions->name}}</h3>
                         </div>
                     </div>    
                 @endif

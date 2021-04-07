@@ -42,7 +42,7 @@ class HomeController extends Controller
         $contact = Contact::all();
         $footer = Footer::all();
         $sujet = Subject::all();
-        // $user = User::all();
+        $users = User::all();
         $about = About::all();
 
         $service = DB::table('services')
@@ -61,13 +61,12 @@ class HomeController extends Controller
         ->get();
 
                 
-        // $user2 = DB::table('users')
-        // ->where('fonction_id', '!=', 1)
-        // ->inRandomOrder()
-        // ->limit(2)
-        // ->get();
+        $user = User::where([['fonction_id', '!=', 1], ['approved', true]])
+        ->inRandomOrder()
+        ->limit(2)
+        ->get();
 
         
-        return view('welcome', compact('logo', 'title', 'sujet', 'contact', 'footer', 'testimonial', 'about', 'random', 'service'));
+        return view('welcome', compact('logo', 'user', 'users', 'title', 'sujet', 'contact', 'footer', 'testimonial', 'about', 'random', 'service'));
     }
 }

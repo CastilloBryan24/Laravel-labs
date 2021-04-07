@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Backoffice;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormulaireController;
 use App\Http\Controllers\HomeController;
@@ -57,6 +58,7 @@ Route::post('/about-update/{id}', [AboutController::class, 'update']);
 Route::get('/team-show/{id}', [TeamController::class, 'show']);
 Route::get('/team-edit/{id}', [TeamController::class, 'edit']);
 Route::post('/team-update/{id}', [TeamController::class, 'update']);
+Route::get('/user-validate/{id}', [TeamController::class, 'userValidate']);
 Route::get('/team-destroy/{id}', [TeamController::class, 'destroy']);
 Route::post('/team-store', [TeamController::class, 'store']);
 
@@ -78,6 +80,11 @@ Route::post('/map-update/{id}', [MapController::class, 'update']);
 
 // Post
 Route::get('/blogPost', [PostController::class, 'index']);
+Route::get('/post-show/{id}', [BlogController::class, 'show']);
+
+// Comments
+Route::post('/comment-store', [CommentController::class, 'store']);
+Route::get('/comment-validate/{id}', [CommentController::class, 'commentValidate']);
 
 // Backoffice
 Route::get('/backoffice', [Backoffice::class, 'index']);
@@ -89,6 +96,7 @@ Route::get('/team', [TeamController::class, 'index']);
 Route::get('/boContact', [ContactController::class, 'backoffice']);
 Route::get('/boBlog', [BlogController::class, 'backoffice']);
 Route::get('/boNewsletter', [NewsletterController::class, 'index']);
+Route::get('/boComment', [CommentController::class, 'index']);
 
 
 Auth::routes();

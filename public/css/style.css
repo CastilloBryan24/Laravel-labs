@@ -1737,3 +1737,14 @@ ul {
 		margin-bottom: 20px;
 	}
 }
+
+.tagStyle{
+	all: unset !important; 
+	cursor: pointer !important; 
+	font-size: 12px !important;
+	text-transform: capitalize !important;
+}
+
+.tagStyle::after{
+	content: none !important;
+}

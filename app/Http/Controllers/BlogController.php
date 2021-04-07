@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Footer;
 use App\Models\Logo;
+use App\Models\Post;
+use App\Models\Tag;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -19,11 +25,13 @@ class BlogController extends Controller
     {
         $logo = Logo::all();
         $footer = Footer::all();
-        // $date = Carbon::now()->format('d');
-        // $date2 = Carbon::now()->format('m y');
-        // dd($date2);
-        
-        return view('blog', compact('logo', 'footer'));
+        $categories = Category::all();
+        $tags = Tag::all();
+        $users = User::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(3);
+        $comment = Comment::where('approved', true)->get();
+
+        return view('blog', compact('logo', 'comment', 'users', 'footer', 'categories', 'tags', 'posts'));
     }
 
     /**
@@ -55,9 +63,25 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
-        //
+        $show = Post::find($id);
+        $categories = Category::all();
+
+        $logo = Logo::all();
+        $footer = Footer::all();
+        $tags = Tag::all();
+        $users = User::all();
+        $posts = Post::all();
+        $comment = Comment::where([['post_id', $show->id], ['approved', true]])
+        ->orderBy('id', 'desc')
+        ->get();
+        // dd($comment->created_at);
+        // $commentApproved = $comment->where('approved', true);
+        $nbr = count($comment);
+
+        return view('blogPost', compact('show', 'categories', 'logo', 'footer', 'tags', 'users', 'posts', 'comment', 'nbr'));
+
     }
 
     /**

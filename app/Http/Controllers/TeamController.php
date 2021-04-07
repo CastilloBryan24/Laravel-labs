@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fonction;
 use App\Models\Logo;
 use App\Models\Team;
 use App\Models\User;
@@ -18,8 +19,17 @@ class TeamController extends Controller
     public function index()
     {
         $logo = Logo::all();
-        $user = User::all();
-        return view('boTeam', compact('logo', 'user'));
+        $user = User::where('approved', true)->get();
+        $userValidate = User::where('approved', false)->get();
+        return view('boTeam', compact('logo', 'user', 'userValidate'));
+    }
+
+    public function userValidate($id)
+    {
+        $update = User::find($id);
+        $update->approved = 1;
+        $update->save();
+        return redirect()->back();
     }
 
     /**
@@ -73,7 +83,8 @@ class TeamController extends Controller
     public function edit($id)
     {
         $edit = User::find($id);
-        return view('editTeam', compact('edit'));
+        $fonction = Fonction::all();
+        return view('editTeam', compact('edit', 'fonction'));
     }
 
     /**
@@ -85,12 +96,15 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Team::find($id);
-        Storage::delete('public/img/team/'.$update->src);
-        Storage::put('public/img/team/', $request->file('src'));
+        $update = User::find($id);
+        Storage::delete('public/img/users/'.$update->src);
+        Storage::put('public/img/users/', $request->file('src'));
         $update->src = $request->file('src')->hashName();
         $update->name = $request->name;
-        $update->function = $request->function;
+        $update->email = $request->email;
+        $update->number = $request->number;
+        $update->description = $request->description;
+        $update->fonction_id = $request->fonction_id;
         $update->save();
         return redirect('/team');
     }
