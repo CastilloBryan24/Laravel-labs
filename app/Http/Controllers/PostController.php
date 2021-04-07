@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -39,7 +42,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->tag);
+        $store = new Post;
+        Storage::put('public/img/blog/', $request->file('src'));
+        $store->src = $request->file('src')->hashName();
+        $store->title = $request->title;
+        $store->content = $request->content;
+        $store->user_id = Auth::id();
+        $store->category_id = $request->category_id;
+        $store->save();
+        foreach ($request->tag as $item) {
+            $store->tags()->attach($item, ['post_id' => $store->id]);
+        }
+        return redirect()->back();
     }
 
     /**

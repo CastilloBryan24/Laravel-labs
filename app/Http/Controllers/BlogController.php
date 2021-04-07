@@ -43,7 +43,9 @@ class BlogController extends Controller
     {
         $logo = Logo::all();
         $blog = Blog::all();
-        return view('boBlog', compact('blog', 'logo'));
+        $category = Category::all();
+        $tag = Tag::all();
+        return view('boBlog', compact('blog', 'tag', 'category', 'logo'));
     }
 
     /**
@@ -66,6 +68,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $show = Post::find($id);
+        $texte = explode('/', $show->content);
         $categories = Category::all();
 
         $logo = Logo::all();
@@ -80,7 +83,7 @@ class BlogController extends Controller
         // $commentApproved = $comment->where('approved', true);
         $nbr = count($comment);
 
-        return view('blogPost', compact('show', 'categories', 'logo', 'footer', 'tags', 'users', 'posts', 'comment', 'nbr'));
+        return view('blogPost', compact('show', 'texte', 'categories', 'logo', 'footer', 'tags', 'users', 'posts', 'comment', 'nbr'));
 
     }
 

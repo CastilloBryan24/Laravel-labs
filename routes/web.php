@@ -81,6 +81,7 @@ Route::post('/map-update/{id}', [MapController::class, 'update']);
 // Post
 Route::get('/blogPost', [PostController::class, 'index']);
 Route::get('/post-show/{id}', [BlogController::class, 'show']);
+Route::post('/post-store', [PostController::class, 'store']);
 
 // Comments
 Route::post('/comment-store', [CommentController::class, 'store']);

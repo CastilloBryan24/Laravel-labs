@@ -30,7 +30,9 @@
                             @endforeach
                             <a href="">{{$nbr}} Comments</a>
                         </div>
-                        <p>{{$show->content}}</p>
+                        @foreach ($texte as $item)
+                            <p>{{$item}}</p>
+                        @endforeach
                     </div>
                     <!-- Post Author -->
                     <div class="author">

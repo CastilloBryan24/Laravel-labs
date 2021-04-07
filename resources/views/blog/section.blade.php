@@ -9,8 +9,13 @@
                         <div class="post-thumbnail">
                             <img src="{{asset('storage/img/blog/'.$item->src)}}" alt="" height="268px" width="750px">
                             <div class="post-date">
-                                <h2>03</h2>
-                                <h3>Nov 2017</h3>
+                                @if ($item->created_at == NULL)
+                                    <h2>03</h2>
+                                    <h3>Nov 2017</h3>
+                                @else
+                                    <h2>{{$item->created_at->format('d')}}</h2>
+                                    <h3>{{$item->created_at->format('M Y')}}</h3>
+                                @endif
                             </div>
                         </div>
                         <div class="post-content">
